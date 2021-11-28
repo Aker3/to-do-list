@@ -28,7 +28,7 @@ function TaskManager(props) {
     let tasks_ = target.name === "column1" ? tasks : tasks2;
     tasks_ = new Map(
       [...tasks_].filter(function (value, index, arr) {
-        return index != parseInt(target.id);
+        return index !== parseInt(target.id);
       })
     );
     console.log(tasks_);
@@ -49,7 +49,7 @@ function TaskManager(props) {
     let tasks_ = target.name === "column1" ? tasks : tasks2;
     tasks_ = new Map(
       [...tasks_].filter(function (value, index, arr) {
-        return index != parseInt(target.id);
+        return index !== parseInt(target.id);
       })
     );
     console.log(tasks_);
