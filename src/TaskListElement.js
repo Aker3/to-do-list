@@ -18,11 +18,12 @@ function TaskListElement(props) {
       {Array.from(props.data || props.data2).map((val, index) => (
         <div className="divList" key={index}>
           <div
+            id={index}
             suppressContentEditableWarning={true}
             spellcheck="false"
             className="textList"
             contentEditable="true"
-            onInput={handleChange}
+            onBlur={handleChange}
             column={props.data ? "column1" : "column2"}
           >
             {val[1]}
@@ -42,7 +43,7 @@ function TaskListElement(props) {
             name={buttonName}
             value={val[1]}
           >
-            Move
+            {props.data ? ">" : "<"}
           </button>
         </div>
       ))}

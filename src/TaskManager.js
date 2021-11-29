@@ -24,6 +24,7 @@ function TaskManager(props) {
     setTasks(newtasks);
     setTasks2(newtasks2);
   }
+
   function deleteTask(target) {
     let tasks_ = target.name === "column1" ? tasks : tasks2;
     tasks_ = new Map(
@@ -42,11 +43,23 @@ function TaskManager(props) {
 
   function editTask(target) {
     let column = target.attributes["column"].value;
-    console.log(column);
+    // let id = target.id;
+    let tasks_ = column === "column1" ? tasks : tasks2;
+    tasks_ = [...tasks_].map((item, index) => {
+      if (index == target.id) item = [item[0], target.textContent];
+      return item;
+    });
+
+    console.log(tasks_);
+
+    if (column === "column1") setTasks([...tasks_]);
+    else setTasks2([...tasks_]);
   }
 
   function moveTask(target) {
     let tasks_ = target.name === "column1" ? tasks : tasks2;
+    console.log(target.id);
+
     tasks_ = new Map(
       [...tasks_].filter(function (value, index, arr) {
         return index !== parseInt(target.id);
