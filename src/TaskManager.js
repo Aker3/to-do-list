@@ -46,7 +46,7 @@ function TaskManager(props) {
     // let id = target.id;
     let tasks_ = column === "column1" ? tasks : tasks2;
     tasks_ = [...tasks_].map((item, index) => {
-      if (index == target.id) item = [item[0], target.textContent];
+      if (index === parseInt(target.id)) item = [item[0], target.textContent];
       return item;
     });
 
